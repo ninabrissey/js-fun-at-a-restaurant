@@ -2,16 +2,6 @@ function nameMenuItem(name) {
   return `Delicious ${name}`;
 }
 
-function createMenuItem(menuItemName) {
-  var menuItem = {
-    name: menuItemName,
-    price: 10.99,
-    type: 'breakfast'
-  };
-  return menuItem;
-};
-
-//alt
 
 function createMenuItem(menuItemName, price, type) {
   var menuItem = {
@@ -22,15 +12,14 @@ function createMenuItem(menuItemName, price, type) {
   return menuItem;
 };
 
-
-
-function addIngredients(newIngredient, ingredientsArray) {
-  for (var i = 0; i < ingredientsArray.length; i++) {
-    if (ingredientsArray[i] === newIngredient) {
+// note to sell: ingredientsList is an array
+function addIngredients(newIngredient, ingredientsList) {
+  for (var i = 0; i < ingredientsList.length; i++) {
+    if (ingredientsList[i] === newIngredient) {
       return;
     }
   }
-  ingredientsArray.push(newIngredient);
+  ingredientsList.push(newIngredient);
 };
 
 
@@ -38,15 +27,17 @@ function formatPrice(unformattedPrice) {
   return `$${unformattedPrice}`;
 };
 
+
 function decreasePrice(fullPriceItem){
   return fullPriceItem * .9;
 };
 
-function createRecipe(title, ingredients, menuItemType) {
+
+function createRecipe(title, ingredients, type) {
   var recipe = {
     title: title,
     ingredients: ingredients,
-    type: menuItemType,
+    type: type,
   }
   return recipe;
 };
