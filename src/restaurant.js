@@ -1,10 +1,11 @@
 function createRestaurant(name) {
-  var restaurant = {};
-  restaurant.name = name;
-  restaurant.menus = {
+  var restaurant = {
+    name: name,
+    menus: {
     breakfast: [],
     lunch: [],
     dinner: [],
+    }
   };
   return restaurant;
 };
@@ -24,15 +25,11 @@ function addMenuItem(restaurant, menuItem) {
 
 
 function removeMenuItem(restaurant, item, type) {
-  if (restaurant.menus[type] !== undefined) {
     for (var i = 0; i < restaurant.menus[type].length; i++) {
       restaurant.menus[type].splice(i, 1)
       return `No one is eating our ${item} - it has been removed from the ${type} menu!`;
     };
-  };
-  // if (!restaurant.menus[type].includes(item)) {
     return `Sorry, we don't sell ${item}, try adding a new recipe!`;
-  // };
 };
 
 
